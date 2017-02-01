@@ -1,0 +1,33 @@
+{
+  "name": "cat_fastqs",
+  "title": "combine multiple fastq files",
+  "summary": "combine multiple fastq files",
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "fastq",
+      "label": "Sorted mappings",
+      "help": "A coordinate-sorted BAM file with the human mappings on which metrics will be calculated.",
+      "class": "array:file",
+      "patterns": ["*.fastq*"]
+    } 
+  ],
+  "outputSpec": [
+    {
+      "name": "combined_fastq",
+      "label": "combined fastq file",
+      "help": "A fastq file containing all the concatenated fastqs",
+      "class": "array:file",
+      "patterns": ["*.fastq*"]
+    }
+  ],
+  "runSpec": {
+    "systemRequirements": {
+      "main": {
+        "instanceType": "mem2_ssd1_x4"
+      }
+    },
+    "file": "src/code.sh",
+    "interpreter": "bash"
+  }
+}
